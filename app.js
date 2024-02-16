@@ -13,6 +13,7 @@ const rateLimit = require('express-rate-limit');
 const  helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
+const compression = require('compression');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser')
 const app = express();
@@ -72,6 +73,7 @@ app.use(
 //   next();
 // });
 
+app.use(compression());
 //Test(Own MiddleWare)
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();

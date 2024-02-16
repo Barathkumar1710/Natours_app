@@ -44,7 +44,6 @@ const signUp = async (req, res, next) => {
   try {
     const newUser = await User.create(req.body);
     const url =`${req.protocol}://${req.get('host')}/me`;
-    console.log(url);
     await new Email(newUser, url).sendWelcome()
     createSendToken(newUser, 201, res);
   } catch (err) {
@@ -82,7 +81,6 @@ const protect = catchAsync(async (req, res, next) => {
   } else if(req.cookies.jwt){
     token = req.cookies.jwt
   }
-  console.log(token, "tokenData");
 
   if (!token) {
     return next(
@@ -244,7 +242,6 @@ const resetPassword = catchAsync(async (req, res, next) => {
 //update password
 const updatePassword = catchAsync(async (req, res, next) => {
   //1. Get user from collection
-  console.log(req.user.id);
   const user = await User.findById(req.user.id).select("+password");
 
   //2.check if POST ed current password is correct or not

@@ -44,7 +44,7 @@ module.exports = class Email {
       url: this.url,
       subject,
     });
-    console.log(html);
+    // console.log(html);
 
     //2.define the email options
     const mailOptions = {
@@ -54,7 +54,7 @@ module.exports = class Email {
       html,
       // text: htmlToText.fromString(html),
     };
-    console.log(mailOptions);
+    // console.log(mailOptions);
     //3. create transport and send mail
 
     await this.newTransport().sendMail(mailOptions);

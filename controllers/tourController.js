@@ -32,7 +32,7 @@ const uploadTourImages = upload.fields([
 ])
 
 const resizeTourImages = catchAsync(async (req, res, next) => {
-  console.log(req.files);
+  // console.log(req.files);
 
   if(!req.files.imageCover || !req.files.images){
     return next();
