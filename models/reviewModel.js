@@ -73,7 +73,7 @@ reviewSchema.pre(/^find/, function (next) {
    7. Which it points into this.constructor( current Model)
 */
 reviewSchema.statics.calcAverageRatings = async function (tourId) {
-  console.log(tourId, "tourID");
+  // console.log(tourId, "tourID");
   const stats = await this.aggregate([
     {
       $match: { tour: tourId },
@@ -86,7 +86,7 @@ reviewSchema.statics.calcAverageRatings = async function (tourId) {
       },
     },
   ]);
-  console.log(stats, "stats_result");
+  // console.log(stats, "stats_result");
 
   if (stats.length > 0) {
     // persisting( updating) data into current Tour document(DB)

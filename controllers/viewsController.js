@@ -50,7 +50,7 @@ const getAccount = (req, res) => {
 
 // updating user detail data
 const updateUserData = catchAsync(async (req, res, next) => {
-  console.log(true);
+  // console.log(true);
   const updatedUser = await User.findByIdAndUpdate(
     req.user.id,
     { 

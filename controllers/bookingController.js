@@ -9,7 +9,6 @@ const Booking = require('../models/bookingModel');
 const getCheckoutSession = catchAsync(async (req, res, next) => {
   1; // get the currently booked tour
   const tour = await Tour.findById(req.params.tourId);
-  console.log(tour);
   //   2. create the checkout sesion
   /* This is about the session */
   const session = await stripe.checkout.sessions.create({
@@ -36,7 +35,6 @@ const getCheckoutSession = catchAsync(async (req, res, next) => {
     ],
     mode: 'payment'
   });
-  console.log(session, "booking controller");
   // 3. Create Session as response ( sending responses back to the client)\
   res.status(200).json({
     status: "success",
